@@ -1,52 +1,52 @@
 export const Users = [
   {
     id: 1,
-    profilePicture: "./assets/person/1.jpeg",
+    profilePicture: "/assets/person/1.jpeg",
     username: "John Carter",
   },
   {
     id: 2,
-    profilePicture: "./assets/person/2.jpeg",
+    profilePicture: "/assets/person/2.jpeg",
     username: "Emma Stone",
   },
   {
     id: 3,
-    profilePicture: "./assets/person/3.jpeg",
+    profilePicture: "/assets/person/3.jpeg",
     username: "Liam Johnson",
   },
   {
     id: 4,
-    profilePicture: "./assets/person/4.jpeg",
+    profilePicture: "/assets/person/4.jpeg",
     username: "Olivia Brown",
   },
   {
     id: 5,
-    profilePicture: "./assets/person/5.jpeg",
+    profilePicture: "/assets/person/5.jpeg",
     username: "Noah Davis",
   },
   {
     id: 6,
-    profilePicture: "./assets/person/6.jpeg",
+    profilePicture: "/assets/person/6.jpeg",
     username: "Ava Miller",
   },
   {
     id: 7,
-    profilePicture: "./assets/person/7.jpeg",
+    profilePicture: "/assets/person/7.jpeg",
     username: "William Wilson",
   },
   {
     id: 8,
-    profilePicture: "./assets/person/8.jpeg",
+    profilePicture: "/assets/person/8.jpeg",
     username: "Sophia Moore",
   },
   {
     id: 9,
-    profilePicture: "./assets/person/9.jpeg",
+    profilePicture: "/assets/person/9.jpeg",
     username: "James Taylor",
   },
   {
     id: 10,
-    profilePicture: "./assets/person/10.jpeg",
+    profilePicture: "/assets/person/10.jpeg",
     username: "Isabella Anderson",
   },
 ];
@@ -55,7 +55,7 @@ export const Posts = [
   {
     id: 1,
     desc: "Love For All, Hatred For None.",
-    photo: "./assets/post/1.jpeg",
+    photo: "post/1.jpeg",
     date: "5 mins ago",
     userId: 1,
     like: 32,
@@ -64,7 +64,7 @@ export const Posts = [
   {
     id: 2,
     desc: "Sunny day at the beach — recharge mode.",
-    photo: "./assets/post/2.jpeg",
+    photo: "post/2.jpeg",
     date: "20 mins ago",
     userId: 2,
     like: 58,
@@ -73,7 +73,7 @@ export const Posts = [
   {
     id: 3,
     desc: "New cafe discovery: best espresso in town.",
-    photo: "./assets/post/3.jpeg",
+    photo: "post/3.jpeg",
     date: "1 hour ago",
     userId: 3,
     like: 24,
@@ -82,7 +82,7 @@ export const Posts = [
   {
     id: 4,
     desc: "Hiking adventures with great company.",
-    photo: "./assets/post/4.jpeg",
+    photo: "post/4.jpeg",
     date: "2 hours ago",
     userId: 4,
     like: 76,
@@ -91,7 +91,7 @@ export const Posts = [
   {
     id: 5,
     desc: "Home cooking experiment turned out amazing!",
-    photo: "./assets/post/5.jpeg",
+    photo: "post/5.jpeg",
     date: "Yesterday",
     userId: 5,
     like: 134,
@@ -100,7 +100,7 @@ export const Posts = [
   {
     id: 6,
     desc: "Late night coding session — nearly done.",
-    photo: "./assets/post/6.jpeg",
+    photo: "post/6.jpeg",
     date: "2 days ago",
     userId: 6,
     like: 45,
@@ -109,7 +109,7 @@ export const Posts = [
   {
     id: 7,
     desc: "City lights and good vibes.",
-    photo: "./assets/post/7.jpeg",
+    photo: "post/7.jpeg",
     date: "3 days ago",
     userId: 7,
     like: 98,
@@ -118,7 +118,7 @@ export const Posts = [
   {
     id: 8,
     desc: "Weekend getaway — nature reset.",
-    photo: "./assets/post/8.jpeg",
+    photo: "post/8.jpeg",
     date: "1 week ago",
     userId: 8,
     like: 64,
@@ -127,7 +127,7 @@ export const Posts = [
   {
     id: 9,
     desc: "Throwback to this amazing concert.",
-    photo: "./assets/post/9.jpeg",
+    photo: "post/9.jpeg",
     date: "2 weeks ago",
     userId: 9,
     like: 210,
@@ -136,7 +136,7 @@ export const Posts = [
   {
     id: 10,
     desc: "Finished a new painting today — feeling proud.",
-    photo: "./assets/post/10.jpeg",
+    photo: "post/10.jpeg",
     date: "1 month ago",
     userId: 10,
     like: 88,

@@ -1,13 +1,38 @@
 import "./post.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Users } from "../../sampleData";
+import axios from "axios";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
+import { format } from "timeago.js";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 function Post({ post }) {
-  const [like, setLike] = useState(post.like);
+  const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
+  const [user, setUser] = useState({});
+  const { user: currentUser } = useContext(AuthContext);
 
-  const likeHandler = () => {
+  useEffect(() => {
+    setIsLiked(post.likes.includes(currentUser._id));
+  }, [currentUser._id, post.likes]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`/api/users?userId=${post.userId}`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, [post.userId]);
+
+  const likeHandler = async () => {
+    try {
+      await axios.put("/api/posts/" + post._id + "/like", {
+        userId: currentUser._id,
+      });
+    } catch (err) {
+      console.log(err);
+    }
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
@@ -17,15 +42,15 @@ function Post({ post }) {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img
-              className="postProfileImg"
-              src={Users.filter((u) => u.id === post?.userId)[0].profilePicture}
-              alt=""
-            />
-            <span className="postUsername">
-              {Users.filter((u) => u.id === post?.userId)[0].username}
-            </span>
-            <span className="postDate">{post.date}</span>
+            <Link to={`/profile/${user.username}`}>
+              <img
+                className="postProfileImg"
+                src={user?.profilePicture || "/assets/person/noAvatar.png"}
+                alt=""
+              />
+            </Link>
+            <span className="postUsername">{user.username}</span>
+            <span className="postDate">{format(post.createdAt)}</span>
           </div>
           <div className="postTopRight">
             <MoreVertIcon />
@@ -34,20 +59,20 @@ function Post({ post }) {
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
           <br />
-          <img className="postImg" src={post?.photo} alt="" />
+          <img className="postImg" src={post?.img ? `/images/${post?.img}` : ""} alt="" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
             <img
               className="likeIcon"
               onClick={likeHandler}
-              src="../../assets/like.png"
+              src="/assets/like.png"
               alt=""
             />
             <img
               className="likeIcon"
               onClick={likeHandler}
-              src="../../assets/heart.png"
+              src="/assets/heart.png"
               alt=""
             />
             <span className="postLikeCounter">{like} people like it</span>

@@ -21,14 +21,14 @@
   justify-content: center;
 }
 
-.loginLogo{
+.loginLogo {
   font-size: 50px;
   font-weight: bold;
   color: #1775ee;
   margin-bottom: 10px;
 }
 
-.loginDesc{
+.loginDesc {
   font-size: 24px;
 }
 
@@ -65,6 +65,10 @@
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.loginButton:disabled {
+  cursor: not-allowed;
 }
 
 .loginForgot {

@@ -6,6 +6,9 @@ import dotenv from "dotenv";
 import userRoute from "./routes/users.js";
 import authRoute from "./routes/auth.js";
 import postRoute from "./routes/posts.js";
+import multer from "multer";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 dotenv.config();
@@ -23,23 +26,41 @@ const connectToMongo = async () => {
 
 connectToMongo();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
 // middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(morgan("common"));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "public/images"));
+  },
+  filename: (req, file, cb) => {
+    const uniqueName = Date.now() + "-" + file.originalname;
+    cb(null, uniqueName);
+  },
+});
+
+const upload = multer({ storage });
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  try {
+    return res.status(200).json({ filename: req.file.filename });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // routes
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 
-app.get("/", (req, res) => {
-  res.send("welcome to home");
-});
-
-app.get("/users", (req, res) => {
-  res.send("welcome to users");
-});
 
 app.listen(8800, () => {
   console.log("backend server is running");

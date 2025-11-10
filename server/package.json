@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "social-media-app",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -7,7 +7,7 @@
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Newton Yetsedaw",
   "license": "ISC",
   "description": "",
   "dependencies": {
@@ -16,6 +16,8 @@
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "mongoose": "^8.19.2",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "path": "^0.12.7"
   }
 }
