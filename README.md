@@ -25,10 +25,8 @@
 
 ## Badges
 
-<!-- Suggested placeholders (replace once available)
 [![Build](https://github.com/https://github.com/NewtonY-dev/social-media-app/actions/workflows/ci.yml/badge.svg)](https://github.com/https://github.com/NewtonY-dev/social-media-app/actions)
 [![Coverage](https://img.shields.io/codecov/c/github/https://github.com/NewtonY-dev/social-media-app)](https://codecov.io/gh/https://github.com/NewtonY-dev/social-media-app)
--->
 
 - License: ISC
 
@@ -275,5 +273,3 @@ ISC
 - Contact details and repository links for badges — https://github.com/NewtonY-dev and yetsedawn@gmail.com.
 
 ---
-
-
